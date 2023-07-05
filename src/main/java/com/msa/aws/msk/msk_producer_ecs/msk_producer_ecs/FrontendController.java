@@ -16,7 +16,7 @@ public class FrontendController {
         this.messageSender = messageSender;
     }
 
-    @PostMapping("/send")
+    @PostMapping("/msk-producer-send")
     public ResponseEntity<String> sendMessage(@RequestParam("message") String message) {
         messageSender.sendMessage(message);
         return ResponseEntity.ok("Message sent: " + message);
