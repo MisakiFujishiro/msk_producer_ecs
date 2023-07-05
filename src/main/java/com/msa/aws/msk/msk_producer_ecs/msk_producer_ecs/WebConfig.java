@@ -9,6 +9,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addRedirectViewController("/msk-producer", "/index.html");
+        registry.addRedirectViewController("/msk-producer", "/msk-producer-index.html");
     }
 }
