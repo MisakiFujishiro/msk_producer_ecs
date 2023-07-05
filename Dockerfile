@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get install -y maven
 
 # PJのコピー
-RUN git clone https://github.com/https://github.com/MisakiFujishiro/msk_producer_ecs.git
+RUN git clone https://github.com/MisakiFujishiro/msk_producer_ecs.git
 
 # プロジェクトのビルド
 RUN mvn install -DskipTests=true -f /msk_producer_ecs/pom.xml
