@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class frontendController {
     @RequestMapping(value="/msk-producer", produces = "text/plain")
     public String frontend() {
-        return "Hello msk-producer-ecs!";
+        return "Hello msk-producer-from-ecs!";
     }
 }
 
