@@ -17,8 +17,12 @@ public class FrontendController {
     }
 
     @PostMapping("/msk-producer-send")
-    public ResponseEntity<String> sendMessage(@RequestParam("message") String message) {
-        messageSender.sendMessage(message);
-        return ResponseEntity.ok("Message sent: " + message);
+    public ResponseEntity<String> sendMessage(@RequestParam("message") int message) {
+        if (message <= 0) {
+            return ResponseEntity.badRequest().body("Invalid message value. Only positive integers are allowed.");
+        }
+
+        messageSender.sendRandomMessages(message);
+        return ResponseEntity.ok("Messages sent: " + message);
     }
 }
