@@ -22,10 +22,11 @@ public class MessageSender {
 
     public void sendRandomMessages(int num) {
         Random rand = new Random();
-
+        System.out.print(num);
         for (int i = 0; i < num; i++) {
             int randomNum = rand.nextInt(11);
-            kafkaTemplate.send("your_topic_name", String.valueOf(randomNum));
+            System.out.print(randomNum);
+            kafkaTemplate.send(topic, String.valueOf(randomNum));
         }
     }
 }
