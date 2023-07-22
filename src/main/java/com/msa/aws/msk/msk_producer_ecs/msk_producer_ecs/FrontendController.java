@@ -17,12 +17,12 @@ public class FrontendController {
     }
 
     @PostMapping("/msk-producer-send")
-    public ResponseEntity<String> sendMessage(@RequestParam("message") int message) {
-        if (message <= 0) {
-            return ResponseEntity.badRequest().body("Invalid message value. Only positive integers are allowed.");
+    public ResponseEntity<String> sendMessage(@RequestParam("num") int num, @RequestParam("topic") String topic, @RequestParam("partition_num") int partition_num) {
+        if (num <= 0 || partition_num <= 0) {
+            return ResponseEntity.badRequest().body("Invalid number of messages or partition number. Only positive integers are allowed.");
         }
 
-        messageSender.sendRandomMessages(message);
-        return ResponseEntity.ok("Messages sent: " + message);
+        messageSender.sendRandomMessagesToTopic(topic, num, partition_num);
+        return ResponseEntity.ok("Messages sent: " + num);
     }
 }

@@ -6,9 +6,12 @@
 </head>
 <body>
 <form action="/msk-producer-send" method="post">
-    <label for="message">Message:</label><br>
-    <input type="text" id="message" name="message"><br>
-    <input type="submit" value="Submit">
-</form>
+    <label for="partition_num">partition_num:</label><br>
+    <input type="number" id="partition_num" name="partition_num"><br>
+    <label for="num">Number of Messages:</label><br>
+    <input type="number" id="num" name="num" min="1"><br>
+    <label for="topic">Topic:</label><br>
+    <input type="text" id="topic" name="topic"><br>
+    <input type="submit" value="Submit"></form>
 </body>
 </html>
