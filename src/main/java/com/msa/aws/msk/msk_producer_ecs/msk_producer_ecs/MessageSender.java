@@ -13,7 +13,7 @@ public class MessageSender {
     @Autowired
     public MessageSender(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
-        this.topic = "Topic_from_java"; // 送信先のトピック名
+        this.topic = "Topic_P5"; // 送信先のトピック名
     }
 
     public void sendMessage(String message) {
