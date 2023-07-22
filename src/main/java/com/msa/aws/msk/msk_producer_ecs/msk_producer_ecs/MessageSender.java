@@ -3,7 +3,9 @@ package com.msa.aws.msk.msk_producer_ecs.msk_producer_ecs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
+
 import java.util.Random;
+import java.util.UUID;
 
 @Component
 public class MessageSender {
@@ -17,7 +19,8 @@ public class MessageSender {
     }
 
     public void sendMessage(String message) {
-        kafkaTemplate.send(topic, message);
+        String randomKey = UUID.randomUUID().toString();
+        kafkaTemplate.send(topic, randomKey, message);
     }
 
     public void sendRandomMessages(int num) {
@@ -26,7 +29,8 @@ public class MessageSender {
         for (int i = 0; i < num; i++) {
             int randomNum = rand.nextInt(11);
             System.out.print(randomNum);
-            kafkaTemplate.send(topic, String.valueOf(randomNum));
+            String randomKey = UUID.randomUUID().toString();
+            kafkaTemplate.send(topic, randomKey, String.valueOf(randomNum));
         }
     }
 }
