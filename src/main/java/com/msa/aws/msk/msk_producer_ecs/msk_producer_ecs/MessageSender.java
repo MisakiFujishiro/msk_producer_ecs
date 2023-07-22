@@ -28,8 +28,8 @@ public class MessageSender {
         for (int i = 0; i < num; i++) {
             int randomNum = rand.nextInt(11);
             System.out.print(randomNum);
-            String partitionKey = String.valueOf(i % partition_num); // create partition key
-            kafkaTemplate.send(topic, partitionKey, String.valueOf(randomNum));
+            String randomKey = UUID.randomUUID().toString();
+            kafkaTemplate.send(topic, randomKey, String.valueOf(randomNum));
         }
     }
 }
